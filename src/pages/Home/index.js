@@ -17,7 +17,7 @@ function reducer(state, action) {
 }
 
 const Home = () => {
-  const selector = useSelector(state => state);
+  const selector = useSelector(state => state.example.data);
   const disp = useDispatch();
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -30,7 +30,7 @@ const Home = () => {
       <Button title='-' onPress={()=>{
         dispatch({type: 'decrement', payload: 2});
       }}/>
-      <Text>{selector.example.data}</Text>
+      <Text>{selector}</Text>
       <Button title='add text' onPress={()=>{
         disp(Creators.addExample('texto qualquer'));
       }}/>
